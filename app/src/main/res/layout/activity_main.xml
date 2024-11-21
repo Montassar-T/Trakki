@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="16dp"
+        android:background="#FAF9FF"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login"
+            android:id="@+id/loginTextView"
+            android:fontFamily="@font/plusjakartasans_regular"
+
+            android:textColor="#aaaaaa"
+            android:textSize="16dp"/>
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:background="#FAF9FF"
+
+       />
+    <LinearLayout
+        android:id="@+id/dotsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="#FAF9FF"
+       >
+        <org.mdw32.trakki.ui.DotIndicatorView
+            android:id="@+id/dotIndicatorView"
+            android:layout_width="wrap_content"
+
+
+            android:layout_height="wrap_content"
+
+            android:padding="8dp"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always take control of your finance"
+            android:textSize="32dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#232323"
+            android:textStyle="bold"
+            android:fontFamily="@font/plusjakartasans_bold"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finances must be arranged to set a better lifestyle in the future."
+            android:textSize="16dp"
+            android:textColor="#aaaaaa"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/plusjakartasans_regular"
+
+            android:textStyle="normal"
+
+            android:textAlignment="center"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="24dp"
+            android:backgroundTint="@color/btn"
+            android:text="Get Started"
+            app:cornerRadius="0dp"
+            android:padding="18dp"
+            android:id="@+id/startBtn"
+            android:fontFamily="@font/plusjakartasans_regular"
+
+            android:textColor="@color/white"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

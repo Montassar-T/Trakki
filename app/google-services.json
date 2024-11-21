@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "735680119645",
+    "project_id": "trakki-9e265",
+    "storage_bucket": "trakki-9e265.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735680119645:android:136d0afe93fbda42b69eb4",
+        "android_client_info": {
+          "package_name": "org.mdw32.trakki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735680119645-onc663c0rkbm1vopt47kt2ke2gcijqru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIkNGb8YwzIXMI63PqjqMVuy098nZUuYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735680119645-onc663c0rkbm1vopt47kt2ke2gcijqru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dot_size_active_width">32dp</dimen>
+    <dimen name="dot_size_active_height">8dp</dimen>
+    <dimen name="dot_size_inactive_width">8dp</dimen>
+    <dimen name="dot_size_inactive_height">8dp</dimen>
+    <dimen name="dot_margin">2dp</dimen>
+</resources>
