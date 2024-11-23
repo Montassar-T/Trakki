@@ -28,6 +28,12 @@
         <activity android:name=".ForgetActivity"></activity>
 
         <activity android:name=".BaseActivity" ></activity>
+        <activity android:name=".SettingsActivity" ></activity>
+        <activity android:name=".TimeFormatActivity" ></activity>
+        <activity android:name=".LanguageActivity" ></activity>
+        <activity android:name=".CurrancyActivity" ></activity>
+        <activity android:name=".HelpActivity" ></activity>
+        <activity android:name=".AddTransactionActivity" ></activity>
 
     </application>
 

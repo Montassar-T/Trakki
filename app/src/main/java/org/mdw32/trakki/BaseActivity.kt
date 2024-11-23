@@ -1,12 +1,15 @@
 package org.mdw32.trakki
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
- class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView : BottomNavigationView
+    private lateinit var fab : FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
         replaceFragmment(HomeFragment())
          bottomNavigationView = findViewById(R.id.bottom_navigation)
+        fab = findViewById(R.id.fab)
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -35,6 +39,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
                 }
                 else -> false
             }
+        }
+
+        fab.setOnClickListener{
+            var intent = Intent(this, AddTransactionActivity::class.java)
+            startActivity(intent)
         }
     }
 

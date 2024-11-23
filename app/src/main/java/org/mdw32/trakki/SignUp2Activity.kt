@@ -1,5 +1,6 @@
 package org.mdw32.trakki
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -119,6 +120,22 @@ class SignUp2Activity : ComponentActivity() {
                             db.collection("users").document(user.uid)
                                 .set(userData)
                                 .addOnSuccessListener {
+
+
+                                    val sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+                                    val editor = sharedPreferences.edit()
+
+                                    // Default settings
+                                    editor.putString("language", "English") // Default language
+                                    editor.putString("currency", "USD") // Default currency
+                                    editor.putString("timeFormat", "dd/MM/yyyy") // Default time format
+
+
+                                    editor.putBoolean("inAppNotifications", true) // Enable in-app notifications by default
+                                    editor.putBoolean("emailNotifications", true) // Enable email notifications by default
+                                    editor.apply()
+
+
                                     // Successfully saved username to Firestore
                                     Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
                                     showLoading(false)

@@ -33,11 +33,12 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingHorizontal="24sp"
-                    android:paddingVertical="42sp">
+                    android:paddingVertical="48sp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/settings"
 
                         android:src="@drawable/setting" />
 
@@ -85,6 +86,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/wrapper"
                         android:orientation="vertical">
                         <LinearLayout
                             android:id="@+id/income"
@@ -106,7 +108,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8sp"
+                                    android:layout_marginEnd="12sp"
                                     android:src="@drawable/money_recive" />
 
                                 <LinearLayout
@@ -116,7 +118,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/plusjakartasans_regular"
+                                        android:fontFamily="@font/plusjakartasans_bold"
                                         android:text="Income"
                                         android:textColor="#333333" />
                                     <TextView
@@ -140,7 +142,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/plusjakartasans_regular"
+                                    android:fontFamily="@font/plusjakartasans_bold"
 
                                     android:text="0 DT"
                                     android:textColor="#333333" />
@@ -178,7 +180,7 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8sp"
+                                    android:layout_marginEnd="12sp"
                                     android:src="@drawable/money_send" />
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -187,7 +189,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/plusjakartasans_regular"
+                                        android:fontFamily="@font/plusjakartasans_bold"
                                         android:text="Expense"
                                         android:textColor="#333333" />
                                     <TextView
@@ -213,7 +215,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/plusjakartasans_regular"
+                                    android:fontFamily="@font/plusjakartasans_bold"
 
                                     android:text="0 DT"
                                     android:textColor="#333333" />

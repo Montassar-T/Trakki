@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBFBFB"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clipChildren="false"
+        android:id="@+id/scroll"
+
+        android:clipToPadding="false"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@color/green"
+                    android:paddingHorizontal="12sp"
+                    android:paddingVertical="24sp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/back"
+                        android:padding="8sp"
+                        android:src="@drawable/arrow" />
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plusjakartasans_bold"
+                        android:text="Add Transaction"
+                        android:textAlignment="center"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bottom"
+
+                android:layout_marginHorizontal="24sp"
+
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8sp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="1dp"
+                    app:cardPreventCornerOverlap="false"
+
+                    app:cardUseCompatPadding="true"
+                   >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="16sp"
+                        android:shadowDx="8"
+                        android:shadowDy="8"
+                        android:shadowRadius="4"
+                        android:paddingHorizontal="24sp"
+android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/LabelStyle"
+                                android:id="@+id/nameLabel"
+                                android:text="Transaction Name"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/nameLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:endIconMode="none"
+                                android:paddingVertical="2sp"
+
+
+                                app:hintEnabled="false"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Transaction Name"
+                                    android:id="@+id/name"
+                                    android:inputType="text"
+                                    style="@style/EditTextStyle"
+
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/LabelStyle"
+                                android:id="@+id/amountLabel"
+                                android:text="Amount"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="61sp"
+                                android:id="@+id/wrappper"
+                                style="@style/border"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/currLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+
+                                    app:endIconMode="none"
+                                    android:paddingVertical="2sp"
+
+                                    app:hintEnabled="false"
+                                    >
+
+                                    <EditText
+
+                                        android:id="@+id/curr"
+                                        style="@style/amount"
+                                        android:layout_width="64dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="3sp"
+                                        android:background="@color/white"
+                                        android:enabled="false"
+                                        android:inputType="text"
+                                        android:text="Dnt"
+
+
+                                        android:textColor="#666666"
+
+
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:id="@+id/seperator"
+                                    android:layout_height="match_parent"
+                                    android:background="#AAAAAA" />
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/amountLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:padding="2sp"
+                                    app:endIconMode="none"
+                                    android:layout_weight="1"
+                                    app:hintEnabled="false"
+                                    >
+
+                                    <EditText
+
+                                        android:id="@+id/amount"
+                                     style="@style/amount"
+                                        android:background="@color/white"
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="0"
+                                        android:fontFamily="@font/plusjakartasans_regular"
+                                        android:inputType="numberDecimal"
+
+
+                                        />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/amountErrorMessage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Required Field."
+                                android:textSize="12sp"
+                                android:layout_marginTop="8sp"
+                                android:paddingStart="24sp"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/LabelStyle"
+                                android:id="@+id/typeLabel"
+                                android:text="Type"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/typeLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="61sp"
+                                app:endIconMode="dropdown_menu"
+                                android:paddingStart="4sp"
+                                app:endIconDrawable="@drawable/downarrow"
+                                android:paddingVertical="2sp"
+                                app:hintEnabled="false"
+                                >
+
+                                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                    android:id="@+id/dropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingStart="16dp"
+
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:textSize="16sp"
+
+                                    android:fontFamily="@font/plusjakartasans_regular"
+                               android:background="@drawable/edittext_border"
+
+                                    android:focusableInTouchMode="true" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/LabelStyle"
+                                android:id="@+id/catLabel"
+                                android:text="Category"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/catLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="61sp"
+                                app:endIconMode="dropdown_menu"
+                                app:endIconDrawable="@drawable/downarrow"
+                                android:paddingVertical="2sp"
+                                app:hintEnabled="false"
+                                >
+
+                                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                    android:id="@+id/catDropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingStart="16dp"
+
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:textSize="16sp"
+
+                                    android:fontFamily="@font/plusjakartasans_regular"
+                                    android:background="@drawable/edittext_border"
+
+                                    android:focusableInTouchMode="true" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/LabelStyle"
+                                android:id="@+id/dateLabel"
+                                android:text="Date"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/dateLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="61sp"
+                                app:endIconMode="custom"
+                                app:endIconDrawable="@drawable/calendar"
+                                app:endIconTint="@color/green"
+                                android:paddingVertical="2sp"
+                                app:hintEnabled="false"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:id="@+id/date"
+                                    android:focusable="false"
+
+                                    android:inputType="none"
+                                    style="@style/EditTextStyle"
+
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="61sp"
+                            android:backgroundTint="@color/btn"
+                            android:text="Add"
+                            android:id="@+id/add"
+                            android:layout_marginTop="16dp"
+                            android:padding="16dp"
+
+
+                            android:textColor="@color/white"
+                            app:cornerRadius="0dp"/>
+
+                        <ProgressBar
+                            android:id="@+id/loadingSpinner"
+                            android:layout_width="48dp"
+                            android:layout_gravity="center"
+                            android:layout_height="48dp"
+android:visibility="gone"
+                            android:layout_marginTop="16dp" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+</LinearLayout>

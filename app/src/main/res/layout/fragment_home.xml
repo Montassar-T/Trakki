@@ -37,11 +37,14 @@
                         android:layout_marginBottom="24sp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="48sp">
-
+                        android:paddingVertical="42sp"
+                        android:paddingHorizontal="24sp">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/settings"
+                            android:padding="8sp"
+
                             android:src="@drawable/setting" />
 
                         <LinearLayout
@@ -140,10 +143,12 @@
                     android:layout_marginHorizontal="24sp"
                     android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    <androidx.cardview.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+
 
                         app:cardBackgroundColor="@color/white"
 
@@ -311,12 +316,14 @@
                         app:cardUseCompatPadding="true">
 
                         <LinearLayout
-
+android:id="@+id/empty"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
+
                             android:paddingHorizontal="8sp"
                             android:paddingVertical="12sp">
+
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -377,55 +384,19 @@
 
 
                         </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTransactions"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+
                     </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>
 
 
-                <Button
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" /><Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-
-                    android:text="logout" />
 
 
 

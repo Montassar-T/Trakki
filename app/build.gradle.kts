@@ -61,6 +61,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore:24.0.1")
 
+    implementation("androidx.cardview:cardview:1.0.0")
+
+
     // Google Sign-In SDK
     implementation("com.google.android.gms:play-services-auth:20.3.0")
 }
