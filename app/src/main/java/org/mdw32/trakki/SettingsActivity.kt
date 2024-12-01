@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import java.time.LocalDate
 
@@ -71,22 +72,33 @@ class SettingsActivity: ComponentActivity(){
         }
 
         back.setOnClickListener{
-            var intent = Intent (this, BaseActivity::class.java)
-            startActivity(intent)
+
             finish()
         }
         formatArrow.setOnClickListener{
             var intent = Intent(this, TimeFormatActivity::class.java )
             startActivity(intent)
+            finish()
         }
         languageArrow.setOnClickListener{
             var intent = Intent(this, LanguageActivity::class.java )
             startActivity(intent)
+            finish()
         }
         CurrArrow.setOnClickListener{
             var intent = Intent(this, CurrancyActivity::class.java )
             startActivity(intent)
+            finish()
         }
+
+        // Override the back button press behavior
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Finish the current activity when back button is pressed
+                finish()
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
 
 
 

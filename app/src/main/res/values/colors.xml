@@ -10,4 +10,10 @@
     <color name="unselected">#666666</color>
     <color name="active_color">#000000</color>
     <color name="inactive_color">#63676D</color>
+
+    <color name="switch_thumb_color_on">#2EA46A</color>
+    <color name="switch_thumb_color_off">#aaaaaa</color>
+    <color name="switch_track_color_on">#FFCDD2</color>
+    <color name="switch_track_color_off">#FFCDD2</color>
+
 </resources>

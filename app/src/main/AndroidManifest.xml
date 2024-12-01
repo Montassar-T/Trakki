@@ -34,6 +34,8 @@
         <activity android:name=".CurrancyActivity" ></activity>
         <activity android:name=".HelpActivity" ></activity>
         <activity android:name=".AddTransactionActivity" ></activity>
+        <activity android:name=".ChangePasswordActivity" ></activity>
+        <activity android:name=".InfoActivity" ></activity>
 
     </application>
 

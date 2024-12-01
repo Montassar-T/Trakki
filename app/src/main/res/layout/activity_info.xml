@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        android:background="#FBFBFB">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="340sp"
+                android:background="@drawable/back2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24sp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="24sp"
+                    android:paddingVertical="48sp">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/arrow" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/plusjakartasans_bold"
+                        android:text="Account Information"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="24sp"
+                        android:layout_height="24sp" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="96sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12sp"
+                    android:layout_marginBottom="10sp"
+                    android:src="@drawable/user" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24sp"
+                android:orientation="vertical"
+                android:paddingVertical="24sp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16sp"
+                    android:fontFamily="@font/plusjakartasans_bold"
+                    android:text="Account Information"
+                    android:textColor="#333333"
+
+                    android:textSize="16sp" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/LabelStyle"
+                        android:id="@+id/nameLabel"
+                        android:text="Full Name"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconMode="custom"
+
+                        app:hintEnabled="false"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Full Name"
+                            android:id="@+id/name"
+                            android:inputType="textEmailAddress"
+                            style="@style/EditTextStyle"
+
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/LabelStyle"
+                        android:id="@+id/EmailLabel"
+                        android:text="Email"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconMode="custom"
+
+                        app:hintEnabled="false"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:id="@+id/email"
+                            android:inputType="textEmailAddress"
+                            style="@style/EditTextStyle"
+
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/phoneContainer"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/LabelStyle"
+                        android:id="@+id/phoneLabel"
+                        android:text="Phone Number"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phoneLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconMode="custom"
+
+                        app:hintEnabled="false"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="25 030 213"
+                            android:id="@+id/phone"
+                            android:inputType="phone"
+                            style="@style/EditTextStyle"
+
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchCompat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="@color/green"
+                        android:trackTint="@color/gray"
+                        android:layout_gravity="center"
+                        android:paddingVertical="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="Show phone number"
+                        android:fontFamily="@font/plusjakartasans_regular"
+                        android:textSize="14sp"
+                        android:textColor="#333333"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="match_parent"
+                    android:layout_height="61sp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/btn"
+                    android:padding="16dp"
+                    android:text="Save changes"
+
+                    android:textColor="@color/white"
+                    app:cornerRadius="0dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -20,7 +20,6 @@ class LanguageActivity: BaseSettings() {
         back = findViewById(R.id.back)
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
 
         val radioButton1 = findViewById<RadioButton>(R.id.first)
         val radioButton2 = findViewById<RadioButton>(R.id.second)
@@ -31,16 +30,14 @@ class LanguageActivity: BaseSettings() {
         val selectedLanguage = sharedPreferences.getString("language", "English") // Default to "USD" if not found
 
 
-        if(selectedLanguage == "English"){
-            radioButton1.isChecked = true
-        }else if(selectedLanguage == "French"){
-            radioButton2.isChecked = true
-
-        }else{
-            radioButton3.isChecked = true
-
+        // Check the saved format and set the corresponding radio button
+        when (selectedLanguage) {
+            "French" -> radioButton2.isChecked = true
+            "English" -> radioButton1.isChecked = true
+            "العربية" -> radioButton3.isChecked = true
+            else -> radioButton1.isChecked = true // Default to "MM/dd/yyyy"
         }
-        setSingleRadioButtonSelection(radioButton1, radioButton2, radioButton3)
+        setSingleRadioButtonSelection("language", listOf(radioButton1, radioButton2, radioButton3))
 
 
 

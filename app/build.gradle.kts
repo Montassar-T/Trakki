@@ -64,6 +64,23 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
 
 
+    // Lifecycle ViewModel with KTX support
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
+
+    // Fragment KTX for activityViewModels
+    implementation("androidx.fragment:fragment-ktx:1.6.0")
+
+
     // Google Sign-In SDK
     implementation("com.google.android.gms:play-services-auth:20.3.0")
+
+
+
+    // Retrofit and Gson dependencies for API requests
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
+
+
 }

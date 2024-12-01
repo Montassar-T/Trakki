@@ -9,6 +9,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.mdw32.trakki.R
 import org.mdw32.trakki.models.Transaction
+import java.text.SimpleDateFormat
+import java.util.*
+
 class TransactionAdapter(private val transactionList: List<Transaction>) : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
@@ -19,15 +22,18 @@ class TransactionAdapter(private val transactionList: List<Transaction>) : Recyc
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactionList[position]
 
-        // Set transaction name and date
+        // Set transaction name
         holder.name.text = transaction.name
-        holder.date.text = transaction.date
+
+        // Convert Timestamp to a formatted date string
+        val formattedDate = formatDate(transaction.date)
+        holder.date.text = formattedDate
 
         // Set the amount
-        holder.amount.text = "${transaction.amount} DT"
+        holder.amount.text = "${transaction.amount} ${transaction.currency}"
 
         // Set the circle icon color based on income or expense
-        if (transaction.type == "income") {
+        if (transaction.type == "Income") {
             holder.circleIcon.setBackgroundResource(R.drawable.circle_green)
             holder.amount.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.green)) // Green for income
         } else {
@@ -35,12 +41,22 @@ class TransactionAdapter(private val transactionList: List<Transaction>) : Recyc
             holder.amount.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.red)) // Red for expense
         }
 
-        // Keep the arrow image as it is
-
+        // Keep the arrow image as it is (if you need it)
     }
 
     override fun getItemCount(): Int {
         return transactionList.size
+    }
+
+    // Function to format the Firestore Timestamp to a readable date string
+    private fun formatDate(timestamp: com.google.firebase.Timestamp?): String {
+        return if (timestamp != null) {
+            val date = timestamp.toDate() // Convert Timestamp to Date
+            val sdf = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()) // You can change the date format as needed
+            sdf.format(date) // Return formatted date as String
+        } else {
+            "Unknown Date"
+        }
     }
 
     class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -48,6 +64,5 @@ class TransactionAdapter(private val transactionList: List<Transaction>) : Recyc
         val name: TextView = itemView.findViewById(R.id.name)
         val date: TextView = itemView.findViewById(R.id.date)
         val amount: TextView = itemView.findViewById(R.id.amount)
-        val arrow: ImageView = itemView.findViewById(R.id.arrow_income)
     }
 }

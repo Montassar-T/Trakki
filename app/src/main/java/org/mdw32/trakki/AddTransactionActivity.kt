@@ -2,6 +2,7 @@ package org.mdw32.trakki
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -12,12 +13,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.viewModels
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputLayout
@@ -31,6 +34,7 @@ import java.util.Locale
 class AddTransactionActivity: ComponentActivity() {
     private lateinit var bottom : LinearLayout;
     private lateinit var wrappper : LinearLayout;
+    private lateinit var cat_wrapper : LinearLayout;
     private lateinit var add : Button;
     private lateinit var loadingSpinner : ProgressBar;
     private val db = FirebaseFirestore.getInstance()
@@ -45,12 +49,16 @@ class AddTransactionActivity: ComponentActivity() {
     private lateinit var amountLayout: TextInputLayout
     private lateinit var amountLabel: TextView
     private lateinit var amountErrorMessage: TextView
+    private lateinit var back: ImageView
+    private var walletAmount: Double? = null
+    private val homeViewModel: HomeViewModel by viewModels() // ViewModel scoped to this activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_transaction)
 
         bottom = findViewById(R.id.bottom)
+        back = findViewById(R.id.back)
 
         name = findViewById(R.id.name)
         nameLayout = findViewById(R.id.nameLayout)
@@ -63,12 +71,20 @@ class AddTransactionActivity: ComponentActivity() {
         seperator = findViewById(R.id.seperator)
         wrappper = findViewById(R.id.wrappper)
         loadingSpinner = findViewById(R.id.loadingSpinner)
+        cat_wrapper = findViewById(R.id.cat_wrapper)
 
         add = findViewById(R.id.add)
         val sharedPreferences = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+        homeViewModel.fetchHomeData()
+        homeViewModel.walletAmount.observe(this) { walletAmountValue ->
+            walletAmount = walletAmountValue
 
-        curr.text = sharedPreferences.getString("currency", "USD")
+
+        }
+
+
+       val  currency = sharedPreferences.getString("currency", "USD")
+        curr.setText(currency)
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
         val dateLayout = findViewById<TextInputLayout>(R.id.dateLayout)
@@ -92,6 +108,8 @@ class AddTransactionActivity: ComponentActivity() {
         dropdown.setAdapter(adapter)
         catDropdown.setAdapter(catAdapter)
 
+
+
         // Set default selected value
         dropdown.setText(titles[0], false)
         catDropdown.setText(catTitles[0], false)
@@ -99,10 +117,25 @@ class AddTransactionActivity: ComponentActivity() {
 
 
 
+        if(dropdown.text.toString() == "Income"){
+            cat_wrapper.visibility = View.GONE
+        }
+
+        // Set an OnItemClickListener to update visibility when the dropdown selection changes
+        dropdown.setOnItemClickListener { parent, view, position, id ->
+            if (dropdown.text.toString() == "Income") {
+                cat_wrapper.visibility = View.GONE  // Hide the category wrapper if "Income" is selected
+            } else {
+                cat_wrapper.visibility = View.VISIBLE  // Show the category wrapper for other types
+            }
+        }
 
 
 
 
+            back.setOnClickListener {
+               finish()
+            }
 
 
         add.setOnClickListener {
@@ -154,6 +187,15 @@ class AddTransactionActivity: ComponentActivity() {
 
             loadingSpinner.visibility = View.VISIBLE
             add.visibility = View.GONE
+
+            // Show Toast if it's an expense and wallet amount is 0
+            if (typeText == "Expense" && walletAmount == 0.0) {
+                loadingSpinner.visibility = View.GONE
+                add.visibility = View.VISIBLE
+
+                Toast.makeText(this, "Cannot add expense: Wallet amount is 0", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (userId != null) {
                 saveTransaction(nameText, amountText, typeText, categoryText, dateText, userId)
@@ -248,21 +290,27 @@ class AddTransactionActivity: ComponentActivity() {
         // Parse the date string into a Date object using SimpleDateFormat
         val dateFormat = SimpleDateFormat(pattern, Locale.getDefault()) // Use the correct date format based on your app's preferences
         val parsedDate = dateFormat.parse(dateInput)
-
+        val currency : String = curr.text.toString()
         // Prepare the transaction map with a Date object for "date"
         val transaction = hashMapOf(
             "name" to name,
             "amount" to amount.toDoubleOrNull(), // Convert amount to a Double if necessary
             "type" to type,
-            "category" to category,
+
             "date" to parsedDate, // Use the parsed Date object here
-            "userId" to userId
+            "userId" to userId,
+            "currency" to currency,
+
         )
+
+        if (type != "Income") {
+            transaction["category"] = category
+        }
 
         val db = FirebaseFirestore.getInstance()
         db.collection("transactions")
             .add(transaction)
-            .addOnSuccessListener { documentReference ->
+            .addOnSuccessListener {
                 loadingSpinner.visibility = View.GONE
                 add.visibility = View.VISIBLE
                 this.name.text = null
@@ -328,4 +376,6 @@ class AddTransactionActivity: ComponentActivity() {
         amountLabel.setTextColor(Color.parseColor("#333333")) // D
 
     }
+
+
 }

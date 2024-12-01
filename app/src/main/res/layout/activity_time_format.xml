@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
+                    android:id="@+id/one"
                     android:fontFamily="@font/plusjakartasans_regular"
                     android:text="Exemple: 11/21/2024"/>
 
@@ -126,6 +127,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
+                    android:id="@+id/two"
+
                     android:fontFamily="@font/plusjakartasans_regular"
                     android:text="Exemple: 21/11/2024"/>
 
@@ -166,6 +169,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
                     android:textSize="14sp"
+                    android:id="@+id/three"
+
                     android:fontFamily="@font/plusjakartasans_regular"
                     android:text="Exemple: 2024/11/21"/>
 

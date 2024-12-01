@@ -17,7 +17,6 @@ class CurrancyActivity: BaseSettings() {
 
         back = findViewById(R.id.back)
         val sharedPreferences: SharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
 
 
 
@@ -28,33 +27,22 @@ class CurrancyActivity: BaseSettings() {
         val radioButton3 = findViewById<RadioButton>(R.id.third)
 
 
-        var selectedCurrency = sharedPreferences.getString("currency", "DNT") // Default to "USD" if not found
+        var selectedCurrency = sharedPreferences.getString("currency", "TND") // Default to "USD" if not found
 
-        if(selectedCurrency == "USD"){
-            radioButton2.isChecked = true
-        }else if(selectedCurrency == "DNT"){
-            radioButton1.isChecked = true
 
-        }else{
-            radioButton3.isChecked = true
 
+        when (selectedCurrency) {
+            "USD" -> radioButton2.isChecked = true
+            "TND" -> radioButton1.isChecked = true
+            "EUR" -> radioButton3.isChecked = true
+            else -> radioButton1.isChecked = true // Default to "MM/dd/yyyy"
         }
 
-        setSingleRadioButtonSelection(radioButton1, radioButton2, radioButton3)
+        setSingleRadioButtonSelection("currency",listOf(radioButton1, radioButton2, radioButton3))
 
 
         back.setOnClickListener {
 
-             selectedCurrency = when {
-                radioButton1.isChecked -> "DNT"    // You can change the currency values accordingly
-                radioButton2.isChecked -> "USD"
-                radioButton3.isChecked -> "EUR"
-                else -> "DNT" // Default value in case none is selected
-            }
-
-            // Save the selected currency to SharedPreferences
-            editor.putString("currency", selectedCurrency)
-            editor.apply()
             var intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
             finish()

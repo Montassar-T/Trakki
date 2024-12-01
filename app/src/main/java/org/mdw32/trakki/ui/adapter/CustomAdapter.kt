@@ -24,6 +24,11 @@ class CustomAdapter(
         val icon = view.findViewById<ImageView>(R.id.item_icon)
         val title = view.findViewById<TextView>(R.id.item_title)
 
+        // Set the background to white for the dropdown item
+        view.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
+
+
+
         // Set the icon and title for the item
         icon.setImageResource(icons[position])
         title.text = titles[position]
